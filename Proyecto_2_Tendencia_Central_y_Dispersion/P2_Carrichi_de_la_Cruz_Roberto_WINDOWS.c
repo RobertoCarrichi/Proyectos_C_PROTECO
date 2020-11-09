@@ -24,28 +24,17 @@ int ejecutarComando(char *comando,float *arreglo,int *tamanioInicial);
 int main(int argc, char const *argv[])
 {
 	/*
-                          ********************************* 
-                          *        VERSIÓN LINUX          * 
-                          */      system("clear");       /*   
-    /*                    ********************************* 
-	   ################################################################################
-	   #                           ¡¡¡ATENCIÓN!!!                                     #
-	   #  Para el correcto funcionamiento de este programa en un sistema  GNU/LINUX   #
-	   #  se requiere compilar el archivo utilizando la estructura:                   #
-	   #	                 gcc nombreDelArchivo.c -lm                               #
-       #  Es para que pueda se pueda hacer uso de las funciones que otorga Math.h     #
-	   ################################################################################
-	*/
-
-	// float arreglo[10] = {7,9,9,10,10,10,11,12,12,14};
-	// int tamanioInicial=10;
+                          ***********************************
+                          *        VERSIÓN WINDOWS          * 
+                          */        system("cls");            
+    //                    *********************************** 
 
 	// Se crea un arreglo que tendrá una dimensión por defecto de 100 elementos.
 	int tamanioInicial=100;
 	float *arreglo; 
 	arreglo = (float *) malloc(tamanioInicial * sizeof(float));
     if (arreglo == NULL) {
-        printf("La ejecución del programa no es soportada para el equipo, lo sentimos.");
+        printf("La ejecuci%cn del programa no es soportada para el equipo, lo sentimos.",162);
         return 1; // Si no hay suficiente memoria se termina el programa.
     }
 
@@ -69,9 +58,9 @@ int main(int argc, char const *argv[])
     pf(" |  Has decidido salir, gracias por hacer uso de este programa.                  |\n");
     pf(" |                                                                               |\n");
     pf(" |  Hecho por: Roberto Carlos Carrichi de la Cruz                                |\n");
-	pf(" |  Estudiante de la Facultad de Ingeniería, UNAM.                               |\n");
+	pf(" |  Estudiante de la Facultad de Ingenier%ca, UNAM.                               |\n",161);
 	pf(" |                                                                               |\n");
-	pf(" |  Programa de Tecnología en Cómputo, PROTECO.                                  |\n");
+	pf(" |  Programa de Tecnolog%ca en C%cmputo, PROTECO.                                  |\n",161,162);
 	pf(" |  Noviembre 8, 2020.                                                           |\n");
 	pf(" |_______________________________________________________________________________|\n\n");
 	
@@ -96,7 +85,7 @@ int ejecutarComando(char *comando,float *arreglo,int *tamanioInicial){
 		datos(arreglo,*tamanioInicial);
 	}else if(strcmp(comando,"desvest")==0){
 		resultado = desvest(arreglo,*tamanioInicial);
-		pf("\nEl valor de la desviación estándar es de: %0.4f. \n",resultado);	
+		pf("\nEl valor de la desviaci%cn estándar es de: %0.4f. \n",162,resultado);	
 	}else if(strcmp(comando,"imprimir")==0){
 		imprimir(arreglo,*tamanioInicial);
 	}else if(strcmp(comando,"media")==0){
@@ -113,7 +102,7 @@ int ejecutarComando(char *comando,float *arreglo,int *tamanioInicial){
 		if(resultado>0){
 			pf("\nEl valor de la moda será de: %0.4f.\n",resultado);
 		}else if(resultado==-100){
-			pf("\nAl parecer no has añadido valores al arreglo. Vuelve a intentarlo escribiendo el comando \"datos\".\n");
+			pf("\nAl parecer no has a%cadido valores al arreglo. Vuelve a intentarlo escribiendo el comando \"datos\".\n",164);
 		}
 		// Si no se imprime lo anterior significa que había más de una moda, por lo que ya
 		// fue impresa desde el método principal.
@@ -133,35 +122,35 @@ int ejecutarComando(char *comando,float *arreglo,int *tamanioInicial){
 		resultado = varianza(arreglo,*tamanioInicial);
 		pf("\nEl resultado de la varianza es de: %0.4f \n",resultado);
 	}else{
-		pf("\n ¡FATAL! Has tenido un error al elegir el comando, por favor, intenta otra vez.\n");
-		pf(" Escribe \"ayuda\" para volver a desplegar el menú de inicio.\n");
+		pf("\n %cFATAL! Has tenido un error al elegir el comando, por favor, intenta otra vez.\n",173);
+		pf(" Escribe \"ayuda\" para volver a desplegar el men%c de inicio.\n",163);
 	}
 	return 1; // Mientras el valor sea positivo se estará pidiendo comandos.
 }
 void ayuda(){
 	pf("\n");
 	pf(" ################################################################################\n");
-	pf(" ----------- CALCULADORA DE MEDIDAS DE TENDENCIA CENTRAL Y DISPERSIÓN -----------\n");	
+	pf(" ----------- CALCULADORA DE MEDIDAS DE TENDENCIA CENTRAL Y DISPERSI%cN -----------\n",224);	
 	pf("                                                                                 \n");
-	pf(" INSTRUCCIONES : Cuando aparezca el símbolo '>', puedes teclear cualquiera de los\n");	
+	pf(" INSTRUCCIONES : Cuando aparezca el s%cmbolo '>', puedes teclear cualquiera de los\n",161);	
 	pf("                 comandos que se muestran en la siguiente tabla.                 \n");	
 	pf("  ______________________________________________________________________________ \n");
 	pf(" |           |                                                                  |\n");	
-	pf(" | COMANDO   | FUNCION                                                          |\n");
+	pf(" | COMANDO   | FUNCI%cN                                                          |\n",224);
 	pf(" |------------------------------------------------------------------------------|\n");
 	pf(" |   ayuda   | Imprimir nuevamente esta tabla de ayuda.                         |\n");
 	pf(" |   salir   | Terminar el programa.                                            |\n");
 	pf(" |     n     | Cambiar la cantidad de datos (por defecto, n=100).               |\n");
 	pf(" |   datos   | Cambiar todos los datos con los que se desea trabajar.           |\n");
-	pf(" |  cambiar  | Cambiar un dato en una posición específica.                      |\n");
+	pf(" |  cambiar  | Cambiar un dato en una posici%cn espec%cfica.                      |\n",162,161);
 	pf(" |  imprimir | Imprimir los datos ordenados con los que se trabaja actualmente. |\n");
-	pf(" |   media   | Calcular la media aritmética del conjunto de datos.              |\n");
+	pf(" |   media   | Calcular la media aritm%ctica del conjunto de datos.              |\n",130);
 	pf(" |  mediana  | Calcular la mediana del conjunto de datos.                       |\n");
 	pf(" |   moda    | Calcular la moda del conjunto de datos.                          |\n");
 	pf(" |  varianza | Calcular la varianza del conjunto de datos.                      |\n");
-	pf(" |  desvest  | Caluclar la desviación estándar del conjunto de datos.           |\n");
+	pf(" |  desvest  | Calcular la desviaci%cn est%cndar del conjunto de datos.           |\n",162,160);
 	pf(" | cuartil-1 | Calcular el primer cuartil del conjunto de datos.                |\n");
-	pf(" | cuartil-3 | Calcular el primer cuartil del conjunto de datos.                |\n");
+	pf(" | cuartil-3 | Caluclar el primer cuartil del conjunto de datos.                |\n");
 	pf(" |    ric    | Calcular el rango intercuartilico del conjunto de datos.         |\n");
 	pf(" |   rango   | Calcular el rango del conjunto de datos.                         |\n");
 	pf(" |   todos   | Calcular todas las medidas sobre el conjunto de datos.           |\n");
@@ -169,38 +158,38 @@ void ayuda(){
 }
 void n(float *arreglo, int *tamanioInicial){
 	pf("\n El arreglo actualmente tiene la capacidad de %d datos.\n",*tamanioInicial);
-	pf("Indica el nuevo tamaño del arreglo: ");
+	pf("Indica el nuevo tama%co del arreglo: ",164);
 	int nuevoTamanio;
 	sf("%d",&nuevoTamanio);
 	arreglo = (float *) realloc(arreglo, nuevoTamanio * sizeof(float));
     *tamanioInicial=nuevoTamanio;
-    pf("\n ¡Se ha cambiado el tamaño del arreglo exitosamente! \n");
+    pf("\n %cSe ha cambiado el tama%co del arreglo exitosamente! \n",173,164);
 }
 void datos(float *arreglo, int tamanioInicial){
 	
 	for (int i = 0; i < tamanioInicial; ++i)
 	{
-		pf("\nIngresa el valor que tendrá la posición %d: ",i);
+		pf("\nIngresa el valor que tendr%c la posici%cn %d: ",160,162,i);
 		float valor;
 		sf("%f",&valor);
 		arreglo[i]=valor;
-		pf("¡Valor añadido exitosamente!(%d/%d)\n",(i+1),tamanioInicial);
+		pf("%cValor a%cadido exitosamente!(%d/%d)\n",173,164,(i+1),tamanioInicial);
 	}
 }
 void cambiar(float *arreglo, int tamanioInicial){
 	int indice;
 	float nuevoValor;
 	do{
-		pf("Escribe el índice que quieres cambiar, elige un número entre 0 y %d: ",tamanioInicial-1);
+		pf("Escribe el %cndice que quieres cambiar, elige un n%cmero entre 0 y %d: ",161,163,tamanioInicial-1);
 		sf("%d",&indice);
 		if(indice<0||indice>tamanioInicial-1){
-			pf(" ¡OH NO! Has elegido un índice fuera de rango, intenta otra vez.\n");
+			pf(" %cOH NO! Has elegido un %cndice fuera de rango, intenta otra vez.\n",173,161);
 		}
 	}while(indice<0||indice>tamanioInicial-1);
-	pf("Escribe el nuevo valor para el índice %d: ",indice);
+	pf("Escribe el nuevo valor para el %cndice %d: ",161,indice);
 	sf("%f",&nuevoValor);
 	arreglo[indice]=nuevoValor;
-	pf("\n ¡Se cambió el valor del indice %d por un %0.4f exitosamente!\n",indice,nuevoValor);
+	pf("\n %cSe cambi%c el valor del indice %d por un %0.4f exitosamente!\n",173,162,indice,nuevoValor);
 }
 int vacio(float *arreglo, int tamanioInicial){
 	int error = 0;
@@ -238,7 +227,7 @@ void imprimir(float *arreglo, int tamanioInicial){
 	ordenar(arreglo,tamanioInicial);
 	pf("  _____________________ \n");
 	pf(" |        |            |\n");	
-	pf(" | ÍNDICE |   VALOR    |\n");
+	pf(" | %cNDICE |   VALOR    |\n",214);
 	pf(" |---------------------|\n");
 	for (int i = 0; i < tamanioInicial; i++)
 	{
@@ -339,12 +328,12 @@ float moda(float arreglo[], int tamanioInicial, int conRepeticion){
 	}
 	if(modas>1){
 		if(conRepeticion==1){
-			pf("\n¡Tenemos más de una moda!\n");
-			// pf("\nLos índices que tendrán valores de moda son: ");
+			pf("\n%cTenemos m%cs de una moda!\n",173,160);
+			// pf("\nLos %cndices que tendrán valores de moda son: ",161);
 			// for(int i=0;i<modas;i++){
 			// 	pf("[%0.0f] ",indicesConModa[i]);
 			// }
-			pf("\nEl valor de las modas será de: ");
+			pf("\nEl valor de las modas ser%c de: ",160);
 			for(int i=0;i<modas;i++){
 				// Aquí se presenta un casting para que el valor de "indicesConModa" sea un valor entero.
 				pf("[%0.4f] ",arreglo[(int) indicesConModa[i]]);
@@ -356,7 +345,7 @@ float moda(float arreglo[], int tamanioInicial, int conRepeticion){
 		            'no se encontró UNA SOLA MODA', se encontró más de una. */
 		}
 	}else{
-		// pf("El índice que tiene la moda es: %d.\n",modaFinal);
+		// pf("El %cndice que tiene la moda es: %d.\n",161,modaFinal);
 		return arreglo[modaFinal];
 	}
 }
@@ -489,18 +478,18 @@ void todos(float *arreglo, int tamanioInicial){
 	pf(" |      MODA       |%23.4f |\n",resultado);
 	}else if(resultado=-100){
 	pf(" |      MODA       | El conjunto de datos   |\n");
-	pf(" |                 | se encuentra vacío.    |\n",resultado);		
+	pf(" |                 | se encuentra vac%co.    |\n",161,resultado);		
 	}else{
 	pf(" |      MODA       | El conjunto de datos   |\n");
-	pf(" |                 | tiene más de una moda. |\n",resultado);
+	pf(" |                 | tiene m%cs de una moda. |\n",160,resultado);
 	}
 	pf(" |-----------------|------------------------|\n");
 	resultado = varianza(arreglo,tamanioInicial);
 	pf(" |     VARIANZA    |%23.4f |\n",resultado);
 	pf(" |-----------------|------------------------|\n");
 	resultado = desvest(arreglo,tamanioInicial);
-	pf(" |   DESVIACIÓN    |%23.4f |\n",resultado);
-	pf(" |    ESTÁNDAR     |                        |\n");
+	pf(" |   DESVIACI%cN    |%23.4f |\n",224,resultado);
+	pf(" |    EST%cNDAR     |                        |\n",181);
 	pf(" |-----------------|------------------------|\n");
 	resultado = cuartil_1(arreglo,tamanioInicial);
 	pf(" |    CUARTIL 1    |%23.4f |\n",resultado);
@@ -510,10 +499,10 @@ void todos(float *arreglo, int tamanioInicial){
 	pf(" |-----------------|------------------------|\n");
 	resultado = ric(arreglo,tamanioInicial);
 	pf(" |      RANGO      |%23.4f |\n",resultado);
-	pf(" | INTERCUARTÍLICO |                        |\n");
+	pf(" | INTERCUART%cLICO |                        |\n",214);
 	pf(" |_________________|________________________|\n");
 	resultado = moda(arreglo,tamanioInicial,0);
 	if(resultado==-1){
-		pf("\n * Si quieres consultar los valores de MODA,\n   deberás escribir el comando \"moda\"\n   individualmente.\n");
+		pf("\n * Si quieres consultar los valores de MODA,\n   deber%cs escribir el comando \"moda\"\n   individualmente.\n",160);
 	}
 }
