@@ -68,9 +68,6 @@ int ejecutarComando(string comando){
 		}
 	}else if(comando=="sumar"){
 		C = A + B;
-		A.imprimir();
-		B.imprimir();
-		C.imprimir();
 	}else if(comando=="restar"){
 		C = A - B;
 	}else if(comando=="multiplicar"){
@@ -96,7 +93,7 @@ int ejecutarComando(string comando){
 		cout << "\nSe libero la memoria reservada exitosamente." << endl;
 		return -1; /*Ya no tiene nada más que hacer, solo enviar un valor que rompa el ciclo.*/
 	}else{
-		cout << "\n OH NO! Has tenido un error al elegir el comando, por favor, intenta otra vez.\n";
+		cout << "\n OH NO! Has tenido un error al escribir algun el comando, por favor, intenta otra vez.\n";
 		cout << " Escribe \"ayuda\" para volver a desplegar el menu de inicio.\n";
 	}
 	return 1; // Mientras el valor sea positivo se estará pidiendo comandos.
@@ -123,6 +120,7 @@ void ayuda(){
 	cout << " |_________________|_________________________________________________________________|\n" << endl;
 	cout << "  Actualmente tienes a tu disposición 3 matrices llamadas: 'A', 'B' y 'C'. Todas las    " << endl;
 	cout << "  matrices mantendrán el mismo orden entre ellas, actualmente el orden es de: " << A.orden << ". " << endl;
+	cout << "\n  TEN CUIDADO AL ESCRIBIR! Evita poner espacios (' ') al final de el comando.           " << endl;
 }
 
 void redimensionar(){
